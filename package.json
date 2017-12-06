@@ -1,0 +1,26 @@
+{
+  "name": "grunt-samples",
+  "version": "1.0.0",
+  "description": "Learn about grunt",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacastellano/grunt-samples.git"
+  },
+  "keywords": [
+    "grunt"
+  ],
+  "author": "José A. Castellano Ardila",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacastellano/grunt-samples/issues"
+  },
+  "homepage": "https://github.com/jacastellano/grunt-samples#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2"
+  }
+}
