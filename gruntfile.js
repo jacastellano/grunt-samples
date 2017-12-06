@@ -4,6 +4,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-processhtml');
 
     grunt.initConfig({
         connect: {
@@ -36,10 +39,37 @@ module.exports = function (grunt) {
                     }
                 ]
             }
+        },
+        concat: {
+            dist: {
+                files: {
+                    './dist/app.min.js': [
+                        './src/calculator.js',
+                        './src/main.js'
+                    ]
+                }
+            }
+        },
+        uglify: {
+            build: {
+                files: [
+                    {
+                        './dist/app.min.js': './dist/app.min.js'
+                    }
+                ]
+            }
+        },
+        processhtml: {
+            dist: {
+                files: {
+                    'dist/index.html': ['src/index.html']
+                }
+            }
         }
     });
 
     grunt.registerTask('build-dev', ['clean', 'copy']);
+    grunt.registerTask('build-prod', ['clean', 'concat', 'uglify:build', 'processhtml']);
     grunt.registerTask('web', ['connect']);
     grunt.registerTask('default', ['web']);
 
